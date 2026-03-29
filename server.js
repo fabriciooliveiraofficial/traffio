@@ -11521,7 +11521,6 @@ var require_nodemailer = __commonJS({
 // server.ts
 var import_nodemailer = __toESM(require_nodemailer(), 1);
 import express from "express";
-import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 var __filename = fileURLToPath(import.meta.url);
@@ -11530,6 +11529,9 @@ async function startServer() {
   const app = express();
   const PORT = process.env.PORT || 3e3;
   app.use(express.json());
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok", uptime: process.uptime(), env: process.env.NODE_ENV });
+  });
   app.post("/api/submit-lead", async (req, res) => {
     const { name, email, clinic, whatsapp, budget } = req.body;
     if (!name || !email || !clinic || !whatsapp || !budget) {
@@ -11612,6 +11614,7 @@ async function startServer() {
     res.json({ success: true, telegramSuccess, emailSuccess });
   });
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa"
@@ -11625,8 +11628,12 @@ async function startServer() {
       res.sendFile(path.join(staticDir, "index.html"));
     });
   }
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  app.listen(PORT, () => {
+    console.log(`Server environment: ${process.env.NODE_ENV || "development"}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
-startServer();
+startServer().catch((err) => {
+  console.error("Fatal error during startup:", err);
+  process.exit(1);
+});
