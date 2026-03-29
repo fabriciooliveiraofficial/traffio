@@ -1,5 +1,4 @@
 import express from 'express';
-import { createServer as createViteServer } from 'vite';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -12,6 +11,11 @@ async function startServer() {
   const PORT = process.env.PORT || 3000;
 
   app.use(express.json());
+
+  // Health Check Endpoint
+  app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', uptime: process.uptime(), env: process.env.NODE_ENV });
+  });
 
   app.post('/api/submit-lead', async (req, res) => {
     const { name, email, clinic, whatsapp, budget } = req.body;
@@ -110,6 +114,7 @@ async function startServer() {
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
