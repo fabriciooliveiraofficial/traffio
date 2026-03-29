@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Rule to handle API requests - avoid redirection if they exist
+  RewriteRule ^api/submit-lead\.php$ - [L]
+  
+  # Rule to redirect all non-existent files/directories to index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

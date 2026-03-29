@@ -167,7 +167,7 @@ function LandingPage() {
     };
 
     try {
-      await fetch('/api/submit-lead', {
+      await fetch('/api/submit-lead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -610,7 +610,7 @@ function ContactPage() {
     }
     setIsSubmitting(true);
     try {
-      await fetch('/api/submit-lead', {
+      await fetch('/api/submit-lead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
