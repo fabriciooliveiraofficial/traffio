@@ -75,18 +75,19 @@
         :root {
             --color-primary:#e9c349;--color-surface:#0b1326;--color-on-surface:#dae2fd;--font-headline:'Noto Serif',serif;--font-body:'Manrope',sans-serif;
         }
-        body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-        .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background-color:#0b1326;}
+        body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;padding:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+        .hero-section{min-height:100vh !important;height:100vh !important;display:flex;align-items:center;position:relative;overflow:hidden;background-color:#0b1326;}
+        #main-header{position:fixed;top:0;left:0;width:100%;height:80px !important;z-index:100;transition:all .3s ease;display:flex;align-items:center;background-color:rgba(11, 19, 38, 0.6);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);}
         .hero-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(233,195,73,0.05) 0%, transparent 50%);z-index:1;}
         .primary-gradient-btn{background:linear-gradient(135deg,#e9c349 0%,#9d7d00 100%);color:#3c2f00;text-decoration:none;display:inline-block;transition:all .3s ease;}
         .font-headline{font-family:var(--font-headline);}
-        #main-header{position:fixed;top:0;width:100%;height:80px;z-index:100;transition:all .3s ease;display:flex;align-items:center;}
         .container{width:100%;max-width:1400px;margin:0 auto;padding:0 2rem;}
         .text-reveal{opacity:0;}
     </style>
 
     <!-- Main Styles (Deferred) -->
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'"/>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css?v=1.0.3" media="print" onload="this.media='all'"/>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
     
@@ -97,8 +98,8 @@
     </div>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-[100] bg-slate-950/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="main-header">
-        <nav aria-label="Navegação Principal" class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+    <header class="fixed top-0 w-full z-[100] bg-slate-950/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="main-header" style="height: 80px !important;">
+        <nav aria-label="Navegação Principal" class="flex justify-between items-center px-8 py-0 max-w-screen-2xl mx-auto h-full">
             <div class="font-serif italic text-2xl text-amber-400">Traffio Odonto</div>
             <div class="hidden md:flex gap-12 items-center">
                 <a class="font-sans uppercase tracking-widest text-xs text-amber-400 border-b border-amber-400/50 pb-1 hover:opacity-80 transition-opacity" href="#solucao">Diferenciais</a>
@@ -112,10 +113,9 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section aria-labelledby="hero-title" class="hero-section pt-24 bg-surface">
-            <div class="absolute inset-0 z-0">
-                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="async" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchpriority="high" loading="eager" src="hero-bg.jpg" />
+        <section aria-labelledby="hero-title" class="hero-section pt-24 bg-surface" style="min-height: 100vh !important;">
+            <div class="absolute inset-0 z-0 overflow-hidden" style="min-height: 100vh !important;">
+                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="sync" fetchpriority="high" loading="eager" src="hero-bg.jpg" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
             </div>
             <div class="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -455,6 +455,6 @@
     <!-- GSAP / Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=1.0.3"></script>
 </body>
 </html>
