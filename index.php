@@ -60,7 +60,7 @@
     </script>
     
     <!-- Critical Preloads (Performance 100) -->
-    <link rel="preload" href="hero-bg.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="hero-bg.webp" as="image" fetchpriority="high">
 
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
@@ -76,7 +76,7 @@
             --color-primary:#e9c349;--color-surface:#0b1326;--color-on-surface:#dae2fd;--font-headline:'Noto Serif',serif;--font-body:'Manrope',sans-serif;
         }
         body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;padding:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-        .hero-section{min-height:100vh !important;height:100vh !important;display:flex;align-items:center;position:relative;overflow:hidden;background-color:#0b1326;}
+        .hero-section{min-height:100dvh !important;height:100dvh !important;display:flex;align-items:center;position:relative;overflow:hidden;background-color:#0b1326;}
         #main-header{position:fixed;top:0;left:0;width:100%;height:80px !important;z-index:100;transition:all .3s ease;display:flex;align-items:center;background-color:rgba(11, 19, 38, 0.6);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);}
         .hero-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(233,195,73,0.05) 0%, transparent 50%);z-index:1;}
         .primary-gradient-btn{background:linear-gradient(135deg,#e9c349 0%,#9d7d00 100%);color:#3c2f00;text-decoration:none;display:inline-block;transition:all .3s ease;}
@@ -113,9 +113,9 @@
     </header>
 
     <main>
-        <section aria-labelledby="hero-title" class="hero-section pt-24 bg-surface" style="min-height: 100vh !important;">
-            <div class="absolute inset-0 z-0 overflow-hidden" style="min-height: 100vh !important;">
-                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="sync" fetchpriority="high" loading="eager" src="hero-bg.jpg" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" />
+        <section aria-labelledby="hero-title" class="hero-section pt-24 bg-surface" style="min-height: 100dvh !important;">
+            <div class="absolute inset-0 z-0 overflow-hidden" style="min-height: 100dvh !important;">
+                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="sync" fetchpriority="high" loading="eager" src="hero-bg.webp" class="w-full h-full object-cover opacity-30" />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
             </div>
             <div class="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">

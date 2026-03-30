@@ -68,23 +68,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. 3D Tilt Effect
     const tiltContainers = document.querySelectorAll('.active-tilt');
     tiltContainers.forEach((card) => {
+        let ticking = false;
         card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -10;
-            const rotateY = ((x - centerX) / centerX) * 10;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
 
-            gsap.to(card, {
-                duration: 0.5,
-                rotateX,
-                rotateY,
-                transformPerspective: 1000,
-                ease: 'power2.out',
-                overwrite: true
-            });
+                    gsap.to(card, {
+                        duration: 0.5,
+                        rotateX,
+                        rotateY,
+                        transformPerspective: 1000,
+                        ease: 'power2.out',
+                        overwrite: true
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
 
         card.addEventListener('mouseleave', () => {
@@ -181,13 +188,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 9. Sticky Header Effect
     const header = document.getElementById('main-header');
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('py-4', 'bg-slate-950/90');
-            header.classList.remove('py-6', 'bg-slate-950/60');
-        } else {
-            header.classList.add('py-6', 'bg-slate-950/60');
-            header.classList.remove('py-4', 'bg-slate-950/90');
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-4', 'bg-slate-950/90');
+                    header.classList.remove('py-6', 'bg-slate-950/60');
+                } else {
+                    header.classList.add('py-6', 'bg-slate-950/60');
+                    header.classList.remove('py-4', 'bg-slate-950/90');
+                }
+                scrollTicking = false;
+            });
+            scrollTicking = true;
         }
     });
 });
