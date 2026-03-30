@@ -1,6 +1,12 @@
-# Traffio Odonto - Hostinger Optimization (.htaccess)
+# 0. Robots.txt and Sitemap Fix
+<Files "robots.txt">
+    Header set Content-Type "text/plain"
+</Files>
+<Files "sitemap.xml">
+    Header set Content-Type "application/xml"
+</Files>
 
-# 1. Compressão Gzip (Fallbacks para pastas estáticas)
+# 1. Compressão Gzip
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/html

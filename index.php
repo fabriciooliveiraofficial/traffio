@@ -23,19 +23,19 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://traffio-odonto.com.br/" />
+    <meta property="og:url" content="https://traffio.com.br/" />
     <meta property="og:title" content="Traffio Odonto | Marketing para Odontologia e Gestão de Tráfego" />
     <meta property="og:description" content="Marketing ético e previsível para clínicas odontológicas de alto padrão. Especialistas em gestão de tráfego para dentistas focados em implantes e reabilitações." />
     <meta property="og:image" content="https://traffio-odonto.com.br/og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://traffio-odonto.com.br/" />
+    <meta property="twitter:url" content="https://traffio.com.br/" />
     <meta property="twitter:title" content="Traffio Odonto | Marketing para Odontologia" />
     <meta property="twitter:description" content="Marketing ético e previsível para dentistas de alto padrão. Atraia pacientes qualificados com gestão de tráfego especializada." />
     <meta property="twitter:image" content="https://traffio-odonto.com.br/og-image.jpg" />
 
-    <link rel="canonical" href="https://traffio-odonto.com.br/" />
+    <link rel="canonical" href="https://traffio.com.br/" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -43,9 +43,9 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Traffio Odonto",
-      "image": "https://traffio-odonto.com.br/logo.png",
-      "@id": "https://traffio-odonto.com.br/",
-      "url": "https://traffio-odonto.com.br/",
+      "image": "https://traffio.com.br/logo.png",
+      "@id": "https://traffio.com.br/",
+      "url": "https://traffio.com.br/",
       "telephone": "+5511999999999",
       "address": {
         "@type": "PostalAddress",
@@ -65,12 +65,27 @@
     <link rel="preconnect" href="https://lh3.googleusercontent.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts with Display Swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+    </noscript>
+    
+    <!-- Critical CSS (Inlined for 100 Score) -->
+    <style>
+        :root {
+            --color-primary:#e9c349;--color-surface:#0b1326;--color-on-surface:#dae2fd;--font-headline:'Noto Serif',serif;--font-body:'Manrope',sans-serif;
+        }
+        body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+        .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+        .primary-gradient-btn{background:linear-gradient(135deg,#e9c349 0%,#9d7d00 100%);color:#3c2f00;text-decoration:none;display:inline-block;transition:all .3s ease;}
+        .font-headline{font-family:var(--font-headline);}
+        header{position:fixed;top:0;width:100%;z-index:100;transition:all .3s ease;}
+        .container{width:100%;max-width:1400px;margin:0 auto;padding:0 2rem;}
+    </style>
 
-    <!-- Critical CSS (Tailwind Base) -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- Main Styles (Deferred) -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'"/>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
     
@@ -97,9 +112,9 @@
 
     <main>
         <!-- Hero Section -->
-        <section aria-labelledby="hero-title" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <section aria-labelledby="hero-title" class="hero-section pt-24">
             <div class="absolute inset-0 z-0">
-                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1920" height="1080" decoding="async" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchpriority="high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvL_pU30QBbreIN0Ps-EYIQvbJxLYXcy7hdaMCAQ03yUS-YfKXU1I_eLx4yD1vKsx1RChsFZNTueZXCcozKp5Oy3ht6oEr5JSJdfgnvNGwyfvwg1vS9R1gU06G0fA8UBI8_HBmXhIutMpHpQh9QKeOSXIDuwUYKOF5zs0XMxvmcLde2x5XP3Hy_SQHKCA3Qad4U3HSx7Lsak2XIe-ra2603n8VwaUpavqbBrPZkfUmhyXTmiHLMqCSDYUh8kXVVGWe_CEfWZARDhpS" />
+                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="async" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchpriority="high" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvL_pU30QBbreIN0Ps-EYIQvbJxLYXcy7hdaMCAQ03yUS-YfKXU1I_eLx4yD1vKsx1RChsFZNTueZXCcozKp5Oy3ht6oEr5JSJdfgnvNGwyfvwg1vS9R1gU06G0fA8UBI8_HBmXhIutMpHpQh9QKeOSXIDuwUYKOF5zs0XMxvmcLde2x5XP3Hy_SQHKCA3Qad4U3HSx7Lsak2XIe-ra2603n8VwaUpavqbBrPZkfUmhyXTmiHLMqCSDYUh8kXVVGWe_CEfWZARDhpS" />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
             </div>
             <div class="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -269,7 +284,7 @@
                     </div>
                     <div class="relative reveal-up">
                         <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                            <img alt="Close-up de um dentista realizando um procedimento de precisão" width="800" height="800" decoding="async" class="image-scale-parallax w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBNtb8YLUMAGYbn6X-5fRIIucesv6Uir11SCUbmAPkXcAx4BwawLZdQnsQ5Y3H0UiLJmFXfVMzwE30fKExVtBdkI6ZFROm-XPWzOFUNWBQDU-D8CW7zeGGXVA1CuFRnip-FAaPc2ZLufbgrPv2AszIWlT2MFxrFXlOy8KVgr492RQh55pp4pQcpVo-2CxA7BoqeBvLYDIKnL2DkPFwQ-lw_kyXL-Mo4iatzCpmT7nlX5NZci1zB6_wvMCs0ELleMjoLqjxszNAq4nT"/>
+                            <img alt="Close-up de um dentista realizando um procedimento de precisão" width="800" height="800" decoding="async" loading="lazy" class="image-scale-parallax w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBNtb8YLUMAGYbn6X-5fRIIucesv6Uir11SCUbmAPkXcAx4BwawLZdQnsQ5Y3H0UiLJmFXfVMzwE30fKExVtBdkI6ZFROm-XPWzOFUNWBQDU-D8CW7zeGGXVA1CuFRnip-FAaPc2ZLufbgrPv2AszIWlT2MFxrFXlOy8KVgr492RQh55pp4pQcpVo-2CxA7BoqeBvLYDIKnL2DkPFwQ-lw_kyXL-Mo4iatzCpmT7nlX5NZci1zB6_wvMCs0ELleMjoLqjxszNAq4nT"/>
                         </div>
                         <div class="absolute -bottom-10 -left-10 glass-card p-10 rounded-xl max-w-xs hidden md:block active-tilt">
                             <blockquote class="italic text-lg font-headline leading-snug">
