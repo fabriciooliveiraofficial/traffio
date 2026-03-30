@@ -59,16 +59,15 @@
     }
     </script>
     
-    <!-- DNS and Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://lh3.googleusercontent.com" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    
-    <!-- Google Fonts with Display Swap -->
+    <!-- Critical Preloads (Performance 100) -->
+    <link rel="preload" href="hero-bg.jpg" as="image" fetchpriority="high">
+
+    <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
     <noscript>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     </noscript>
     
     <!-- Critical CSS (Inlined for 100 Score) -->
@@ -77,11 +76,13 @@
             --color-primary:#e9c349;--color-surface:#0b1326;--color-on-surface:#dae2fd;--font-headline:'Noto Serif',serif;--font-body:'Manrope',sans-serif;
         }
         body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-        .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+        .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background-color:#0b1326;}
+        .hero-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(233,195,73,0.05) 0%, transparent 50%);z-index:1;}
         .primary-gradient-btn{background:linear-gradient(135deg,#e9c349 0%,#9d7d00 100%);color:#3c2f00;text-decoration:none;display:inline-block;transition:all .3s ease;}
         .font-headline{font-family:var(--font-headline);}
-        header{position:fixed;top:0;width:100%;z-index:100;transition:all .3s ease;}
+        #main-header{position:fixed;top:0;width:100%;height:80px;z-index:100;transition:all .3s ease;display:flex;align-items:center;}
         .container{width:100%;max-width:1400px;margin:0 auto;padding:0 2rem;}
+        .text-reveal{opacity:0;}
     </style>
 
     <!-- Main Styles (Deferred) -->
@@ -112,9 +113,9 @@
 
     <main>
         <!-- Hero Section -->
-        <section aria-labelledby="hero-title" class="hero-section pt-24">
+        <section aria-labelledby="hero-title" class="hero-section pt-24 bg-surface">
             <div class="absolute inset-0 z-0">
-                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="async" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchpriority="high" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvL_pU30QBbreIN0Ps-EYIQvbJxLYXcy7hdaMCAQ03yUS-YfKXU1I_eLx4yD1vKsx1RChsFZNTueZXCcozKp5Oy3ht6oEr5JSJdfgnvNGwyfvwg1vS9R1gU06G0fA8UBI8_HBmXhIutMpHpQh9QKeOSXIDuwUYKOF5zs0XMxvmcLde2x5XP3Hy_SQHKCA3Qad4U3HSx7Lsak2XIe-ra2603n8VwaUpavqbBrPZkfUmhyXTmiHLMqCSDYUh8kXVVGWe_CEfWZARDhpS" />
+                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="async" class="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchpriority="high" loading="eager" src="hero-bg.jpg" />
                 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
             </div>
             <div class="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -151,17 +152,17 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div class="tilt-card p-12 bg-surface-container-highest/30 rounded-xl space-y-6 shadow-xl border border-white/5 active-tilt reveal-up">
-                        <span aria-hidden="true" class="material-symbols-outlined text-primary text-5xl">person_search</span>
+                        <span aria-label="Frustrado com curiosos" class="material-symbols-outlined text-primary text-5xl">person_search</span>
                         <h3 class="font-headline text-2xl">Frustrado com "Curiosos"?</h3>
                         <p class="text-on-surface-variant leading-relaxed">Filtramos o público no Google e Instagram para entregar pacientes qualificados. Gestão de tráfego para dentistas que gera lucro real.</p>
                     </div>
                     <div class="tilt-card p-12 bg-surface-container-highest/30 rounded-xl space-y-6 shadow-xl border border-white/5 active-tilt reveal-up" data-delay="100">
-                        <span aria-hidden="true" class="material-symbols-outlined text-primary text-5xl">verified_user</span>
+                        <span aria-label="Conformidade ética" class="material-symbols-outlined text-primary text-5xl">verified_user</span>
                         <h3 class="font-headline text-2xl">Conformidade Ética Total</h3>
                         <p class="text-on-surface-variant leading-relaxed">Campanhas que seguem as normas do CRO. Marketing sofisticado que eleva sua autoridade profissional e autoridade no mercado.</p>
                     </div>
                     <div class="tilt-card p-12 bg-surface-container-highest/30 rounded-xl space-y-6 shadow-xl border border-white/5 active-tilt reveal-up" data-delay="200">
-                        <span aria-hidden="true" class="material-symbols-outlined text-primary text-5xl">monitoring</span>
+                        <span aria-label="ROI mensurável" class="material-symbols-outlined text-primary text-5xl">monitoring</span>
                         <h3 class="font-headline text-2xl">ROI Mensurável</h3>
                         <p class="text-on-surface-variant leading-relaxed">Rastreamento preciso de cada paciente. Atuamos desde o anúncio até a recepção, sendo um parceiro real no seu marketing odontológico.</p>
                     </div>
@@ -377,7 +378,29 @@
                         </button>
                         <div class="accordion-content">
                             <div class="px-8 pb-8 text-on-surface-variant font-light leading-relaxed">
-                                Utilizamos segmentação avançada por interesses, localização e poder aquisitivo no Google e Meta. Gestão de tráfego que foca em quem realmente valoriza e paga pelo seu trabalho.
+                                Utilizamos segmentação avançada por interesses, localização e poder aquisitivo no Google e Meta. Além disso, estruturamos filtros na captação para que apenas quem realmente tem interesse e condições de pagar pelo tratamento premium chegue até seu WhatsApp.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item reveal-up border border-outline-variant/20 bg-surface-container-highest/20 rounded-xl overflow-hidden group">
+                        <button class="w-full flex items-center justify-between p-8 text-left outline-none" aria-expanded="false">
+                            <span class="text-xl font-headline">Em quanto tempo o ROI se torna positivo?</span>
+                            <span class="material-symbols-outlined accordion-icon transition-transform text-primary">expand_more</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-8 pb-8 text-on-surface-variant font-light leading-relaxed">
+                                Os resultados começam a aparecer em dias, mas o ROI estruturado depende do ciclo de venda da sua clínica. Como focamos em tratamentos de alto ticket (implantes, lentes), uma única conversão costuma cobrir todo o investimento mensal em tráfego.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item reveal-up border border-outline-variant/20 bg-surface-container-highest/20 rounded-xl overflow-hidden group">
+                        <button class="w-full flex items-center justify-between p-8 text-left outline-none" aria-expanded="false">
+                            <span class="text-xl font-headline">Como funciona a política de cancelamento?</span>
+                            <span class="material-symbols-outlined accordion-icon transition-transform text-primary">expand_more</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-8 pb-8 text-on-surface-variant font-light leading-relaxed">
+                                Acreditamos em parcerias baseadas em resultados, não em amarras contratuais. Nossa transparência é total: se não houver alinhamento ou entrega, o encerramento é simples e profissional.
                             </div>
                         </div>
                     </div>

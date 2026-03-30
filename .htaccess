@@ -40,11 +40,10 @@
 </IfModule>
 
 # 3. Cache-Control Headers
-<IfModule mod_headers.c>
-    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|svg)$">
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|svg|woff|woff2|ttf|otf)$">
         Header set Cache-Control "max-age=31536000, public"
     </FilesMatch>
-    <FilesMatch "\.(php|html)$">
+    <FilesMatch "\.(php|html|xml|txt)$">
         Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
         Header set Pragma "no-cache"
         Header set Expires "0"
