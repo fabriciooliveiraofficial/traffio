@@ -211,15 +211,15 @@ function LandingPage() {
         {/* Hero Section */}
         <section aria-labelledby="hero-title" className="relative min-h-screen flex items-center pt-24 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img alt="" aria-hidden="true" width="1920" height="1080" decoding="async" className="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchPriority="high" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvL_pU30QBbreIN0Ps-EYIQvbJxLYXcy7hdaMCAQ03yUS-YfKXU1I_eLx4yD1vKsx1RChsFZNTueZXCcozKp5Oy3ht6oEr5JSJdfgnvNGwyfvwg1vS9R1gU06G0fA8UBI8_HBmXhIutMpHpQh9QKeOSXIDuwUYKOF5zs0XMxvmcLde2x5XP3Hy_SQHKCA3Qad4U3HSx7Lsak2XIe-ra2603n8VwaUpavqbBrPZkfUmhyXTmiHLMqCSDYUh8kXVVGWe_CEfWZARDhpS"/>
+            <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1920" height="1080" decoding="async" className="parallax-bg w-full h-full object-cover opacity-30 scale-125" fetchPriority="high" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvL_pU30QBbreIN0Ps-EYIQvbJxLYXcy7hdaMCAQ03yUS-YfKXU1I_eLx4yD1vKsx1RChsFZNTueZXCcozKp5Oy3ht6oEr5JSJdfgnvNGwyfvwg1vS9R1gU06G0fA8UBI8_HBmXhIutMpHpQh9QKeOSXIDuwUYKOF5zs0XMxvmcLde2x5XP3Hy_SQHKCA3Qad4U3HSx7Lsak2XIe-ra2603n8VwaUpavqbBrPZkfUmhyXTmiHLMqCSDYUh8kXVVGWe_CEfWZARDhpS"/>
             <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
           </div>
           <div className="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 space-y-8 text-reveal-container">
-              <span className="text-reveal inline-block text-primary uppercase tracking-[0.3em] font-label text-sm font-semibold mb-4">Crescimento Estruturado e Sustentável</span>
+              <span className="text-reveal inline-block text-primary uppercase tracking-[0.3em] font-label text-sm font-semibold mb-4">Gestão de Tráfego para Odontologia</span>
               <h1 className="font-headline text-5xl md:text-8xl font-light tracking-tight leading-[1.1] text-on-surface" id="hero-title">
-                <span className="block overflow-hidden pb-2"><span className="block text-reveal">Domine o Mercado</span></span>
-                <span className="block overflow-hidden pb-2"><span className="block text-reveal italic font-light text-primary">Premium com Ética</span></span>
+                <span className="block overflow-hidden pb-2"><span className="block text-reveal">Marketing para</span></span>
+                <span className="block overflow-hidden pb-2"><span className="block text-reveal italic font-light text-primary">Odontologia Ética</span></span>
               </h1>
               <p className="text-reveal text-on-surface-variant text-lg md:text-xl max-w-2xl font-light leading-relaxed">
                 Atraia pacientes de alto ticket com previsibilidade e total conformidade com o CRO. Gestão de tráfego que respeita sua reputação e foca em consultas reais, não em métricas de vaidade.
@@ -517,7 +517,7 @@ function LandingPage() {
         {/* Final CTA Section */}
         <section aria-labelledby="cta-title" className="py-32 bg-surface-container-lowest relative overflow-hidden">
           <div aria-hidden="true" className="absolute inset-0 z-0 opacity-20">
-            <img alt="" aria-hidden="true" width="1920" height="1080" decoding="async" className="parallax-bg w-full h-full object-cover scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlq1qxqBDuGBL3AGXJsNK2nlrgRzqzd64lfjFjDNcIU6ivQlxTsGfEG7ZAbB89q4ai4CNDL90kBsFyWW0HH66JfxJTyiZVoNXd7QMpi8L8guqgXYxjrr4g3GTUAYhnH5SIY0uSF_MoWffoDEVbURHW8C2RQ_FffJvm6oDBGbpP6U3E203JGe0Pcs_Ma2XVfBNY89KXLZbcilGFC73DQZkdIMpdTdRwaSocbdceyXELQVtFHA8zbuvUDEPLKkO-lR1p1p7sI8NBuUvW"/>
+            <img alt="Interior de consultório de odontologia moderno e tecnológico" aria-hidden="true" width="1920" height="1080" decoding="async" className="parallax-bg w-full h-full object-cover scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlq1qxqBDuGBL3AGXJsNK2nlrgRzqzd64lfjFjDNcIU6ivQlxTsGfEG7ZAbB89q4ai4CNDL90kBsFyWW0HH66JfxJTyiZVoNXd7QMpi8L8guqgXYxjrr4g3GTUAYhnH5SIY0uSF_MoWffoDEVbURHW8C2RQ_FffJvm6oDBGbpP6U3E203JGe0Pcs_Ma2XVfBNY89KXLZbcilGFC73DQZkdIMpdTdRwaSocbdceyXELQVtFHA8zbuvUDEPLKkO-lR1p1p7sI8NBuUvW"/>
           </div>
           <div className="container mx-auto px-8 relative z-10 text-center max-w-4xl">
             <h2 className="reveal-up font-headline text-5xl md:text-6xl mb-8 leading-tight" id="cta-title">Pronto para um crescimento sustentável?</h2>
@@ -555,7 +555,7 @@ function ThankYouPage() {
     <div className="min-h-screen bg-surface flex flex-col items-center justify-center relative overflow-hidden font-body selection:bg-primary selection:text-on-primary">
       {/* Background effects */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <img alt="" aria-hidden="true" width="1920" height="1080" decoding="async" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlq1qxqBDuGBL3AGXJsNK2nlrgRzqzd64lfjFjDNcIU6ivQlxTsGfEG7ZAbB89q4ai4CNDL90kBsFyWW0HH66JfxJTyiZVoNXd7QMpi8L8guqgXYxjrr4g3GTUAYhnH5SIY0uSF_MoWffoDEVbURHW8C2RQ_FffJvm6oDBGbpP6U3E203JGe0Pcs_Ma2XVfBNY89KXLZbcilGFC73DQZkdIMpdTdRwaSocbdceyXELQVtFHA8zbuvUDEPLKkO-lR1p1p7sI8NBuUvW"/>
+        <img alt="Fundo de página de agradecimento" aria-hidden="true" width="1920" height="1080" decoding="async" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlq1qxqBDuGBL3AGXJsNK2nlrgRzqzd64lfjFjDNcIU6ivQlxTsGfEG7ZAbB89q4ai4CNDL90kBsFyWW0HH66JfxJTyiZVoNXd7QMpi8L8guqgXYxjrr4g3GTUAYhnH5SIY0uSF_MoWffoDEVbURHW8C2RQ_FffJvm6oDBGbpP6U3E203JGe0Pcs_Ma2XVfBNY89KXLZbcilGFC73DQZkdIMpdTdRwaSocbdceyXELQVtFHA8zbuvUDEPLKkO-lR1p1p7sI8NBuUvW"/>
       </div>
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-surface to-surface z-0"></div>
 
@@ -633,7 +633,7 @@ function ContactPage() {
     <div className="min-h-screen bg-surface flex flex-col font-body selection:bg-primary selection:text-on-primary relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <img alt="" aria-hidden="true" width="1920" height="1080" decoding="async" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlq1qxqBDuGBL3AGXJsNK2nlrgRzqzd64lfjFjDNcIU6ivQlxTsGfEG7ZAbB89q4ai4CNDL90kBsFyWW0HH66JfxJTyiZVoNXd7QMpi8L8guqgXYxjrr4g3GTUAYhnH5SIY0uSF_MoWffoDEVbURHW8C2RQ_FffJvm6oDBGbpP6U3E203JGe0Pcs_Ma2XVfBNY89KXLZbcilGFC73DQZkdIMpdTdRwaSocbdceyXELQVtFHA8zbuvUDEPLKkO-lR1p1p7sI8NBuUvW"/>
+        <img alt="Fundo de formulário de contato" aria-hidden="true" width="1920" height="1080" decoding="async" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlq1qxqBDuGBL3AGXJsNK2nlrgRzqzd64lfjFjDNcIU6ivQlxTsGfEG7ZAbB89q4ai4CNDL90kBsFyWW0HH66JfxJTyiZVoNXd7QMpi8L8guqgXYxjrr4g3GTUAYhnH5SIY0uSF_MoWffoDEVbURHW8C2RQ_FffJvm6oDBGbpP6U3E203JGe0Pcs_Ma2XVfBNY89KXLZbcilGFC73DQZkdIMpdTdRwaSocbdceyXELQVtFHA8zbuvUDEPLKkO-lR1p1p7sI8NBuUvW"/>
       </div>
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-surface to-surface z-0"></div>
 

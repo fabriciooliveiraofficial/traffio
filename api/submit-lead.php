@@ -34,7 +34,7 @@ $whatsapp = $data['whatsapp'] ?? 'Não informado';
 $budget = $data['budget'] ?? 'Não informado';
 
 // ---------------------------------------------------------
-// 1. ENVIO TELEGRAM (Método 2: file_get_contents - Mais simples)
+// 1. ENVIO TELEGRAM
 // ---------------------------------------------------------
 $tgMessage = "🌟 NOVO LEAD: $name\n" .
              "🏥 Clínica: $clinic\n" .
@@ -42,25 +42,18 @@ $tgMessage = "🌟 NOVO LEAD: $name\n" .
              "📱 WhatsApp: $whatsapp\n" .
              "💰 Orçamento: $budget";
 
-$tgUrl = "https://api.telegram.org/bot" . $config['telegram_token'] . "/sendMessage?chat_id=" . $config['telegram_chat_id'] . "&text=" . urlencode($tgMessage);
+$tgUrl = "https://api.telegram.org/bot" . $config['telegram_token'] . "/sendMessage";
 
-// Tenta enviar via file_get_contents (pode ser bloqueado em algumas hospedagens, mas é mais limpo)
-$tgResponse = @file_get_contents($tgUrl);
-$telegramOk = ($tgResponse !== false);
-
-// Se falhar, tenta via cURL como fallback
-if (!$telegramOk) {
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://api.telegram.org/bot" . $config['telegram_token'] . "/sendMessage");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, ['chat_id' => $config['telegram_chat_id'], 'text' => $tgMessage]);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $tgResult = curl_exec($ch);
-    $tgStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    $telegramOk = ($tgStatus === 200);
-}
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $tgUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, ['chat_id' => $config['telegram_chat_id'], 'text' => $tgMessage]);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$tgResult = curl_exec($ch);
+$tgStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+$telegramOk = ($tgStatus === 200);
 
 // ---------------------------------------------------------
 // 2. ENVIO E-MAIL
