@@ -441,7 +441,7 @@
         <div class="flex flex-col md:flex-row justify-between items-center px-12 gap-8 max-w-screen-2xl mx-auto">
             <div class="font-serif text-xl text-amber-500">Traffio Odonto</div>
             <nav aria-label="Links Úteis" class="flex flex-wrap justify-center gap-4 md:gap-8">
-                <a class="font-sans text-sm font-light text-slate-400 hover:text-amber-200 transition-colors p-2" href="#">Privacidade</a>
+                <a class="font-sans text-sm font-light text-slate-400 hover:text-amber-200 transition-colors p-2" href="/politica-de-privacidade">Privacidade</a>
                 <a class="font-sans text-sm font-light text-slate-400 hover:text-amber-200 transition-colors p-2" href="#">Termos</a>
                 <a aria-label="LinkedIn" class="font-sans text-sm font-light text-slate-400 hover:text-amber-200 transition-colors p-2" href="#">LinkedIn</a>
                 <a aria-label="Instagram" class="font-sans text-sm font-light text-slate-400 hover:text-amber-200 transition-colors p-2" href="#">Instagram</a>
