@@ -1,0 +1,31 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploying to Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            echo "🚀 Iniciando Deploy..."
+            # Acesse o diretório do seu site (ajuste se necessário)
+            cd ~/domains/traffio.com.br/public_html || cd ~/public_html
+            
+            # Puxa as alterações do GitHub
+            git pull origin main
+            
+            echo "✅ Deploy concluído com sucesso!"
