@@ -24,6 +24,15 @@
     </noscript>
 
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18068880077"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18068880077');
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
     

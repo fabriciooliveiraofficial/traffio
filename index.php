@@ -59,35 +59,42 @@
     }
     </script>
     
-    <!-- Critical Preloads (Performance 100) -->
+    <!-- Critical Preloads (Performance & UX) -->
+    <link rel="preload" href="css/style.css?v=2.0.0" as="style">
     <link rel="preload" href="hero-bg.webp" as="image" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    </noscript>
+    <!-- Google Fonts & Icons (Blocking to avoid FOIT) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet"/>
     
-    <!-- Critical CSS (Inlined for 100 Score) -->
+    <!-- Critical CSS (Inlined for instant Paint) -->
     <style>
         :root {
             --color-primary:#e9c349;--color-surface:#0b1326;--color-on-surface:#dae2fd;--font-headline:'Noto Serif',serif;--font-body:'Manrope',sans-serif;
         }
-        body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;padding:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-        .hero-section{min-height:100dvh !important;height:100dvh !important;display:flex;align-items:center;position:relative;overflow:hidden;background-color:#0b1326;}
-        #main-header{position:fixed;top:0;left:0;width:100%;height:80px !important;z-index:100;transition:all .3s ease;display:flex;align-items:center;background-color:rgba(11, 19, 38, 0.6);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);}
-        .hero-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(233,195,73,0.05) 0%, transparent 50%);z-index:1;}
-        .primary-gradient-btn{background:linear-gradient(135deg,#e9c349 0%,#9d7d00 100%);color:#3c2f00;text-decoration:none;display:inline-block;transition:all .3s ease;}
+        body{background-color:var(--color-surface);color:var(--color-on-surface);font-family:var(--font-body);margin:0;padding:0;overflow-x:hidden;visibility:hidden;}
+        /* Prevent layout shift on header */
+        #main-header{position:fixed;top:0;left:0;width:100%;height:80px !important;z-index:100;background-color:rgba(11, 19, 38, 0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;}
+        .hero-section{min-height:100dvh !important;height:100dvh !important;position:relative;background-color:#0b1326;display:flex;align-items:center;}
         .font-headline{font-family:var(--font-headline);}
-        .container{width:100%;max-width:1400px;margin:0 auto;padding:0 2rem;}
+        /* Initial state to avoid flash of content before JS */
         .text-reveal{opacity:0;}
     </style>
 
-    <!-- Main Styles (Deferred) -->
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css?v=1.0.3" media="print" onload="this.media='all'"/>
+    <!-- Main CSS (Standard Loading for Premium UX) -->
+    <link rel="stylesheet" href="css/style.css?v=2.0.0" />
+    <style>body{visibility:visible !important;}</style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18068880077"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18068880077');
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
     
@@ -99,23 +106,29 @@
 
     <!-- Header -->
     <header class="fixed top-0 w-full z-[100] bg-slate-950/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="main-header" style="height: 80px !important;">
-        <nav aria-label="Navegação Principal" class="flex justify-between items-center px-8 py-0 max-w-screen-2xl mx-auto h-full">
-            <div class="font-serif italic text-2xl text-amber-400">Traffio Odonto</div>
-            <div class="hidden md:flex gap-12 items-center">
-                <a class="font-sans uppercase tracking-widest text-xs text-amber-400 border-b border-amber-400/50 pb-1 hover:opacity-80 transition-opacity" href="#solucao">Diferenciais</a>
-                <a class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors" href="#experiencia">Nossa Ética</a>
-                <a class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors" href="#faq">Dúvidas</a>
+        <nav aria-label="Navegação Principal" class="flex items-center justify-between px-8 w-full max-w-screen-2xl mx-auto h-full">
+            <a href="/" class="font-serif italic text-2xl text-amber-400 no-underline shrink-0">Traffio Odonto</a>
+            
+            <div class="hidden md:flex items-center gap-8 lg:gap-10">
+                <div class="flex items-center gap-8 lg:gap-10 border-r border-white/10 pr-8 lg:pr-10 h-6">
+                    <a class="font-sans uppercase tracking-widest text-xs text-amber-400 border-b border-amber-400/50 pb-1 hover:opacity-80 transition-opacity" href="#solucao">Diferenciais</a>
+                    <a class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors" href="#experiencia">Nossa Ética</a>
+                    <a class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors" href="#faq">Dúvidas</a>
+                </div>
+                <a href="#super-form-section" aria-label="Solicitar consultoria gratuita" class="primary-gradient-btn px-6 py-3 rounded-md font-sans uppercase tracking-widest text-xs font-bold text-on-primary scale-95 active:scale-90 transition-transform hover:opacity-80 inline-block text-center shadow-lg shadow-primary/20 shrink-0">
+                    Consultoria Gratuita
+                </a>
             </div>
-            <a href="#super-form-section" aria-label="Solicitar consultoria gratuita" class="primary-gradient-btn px-6 py-3 rounded-md font-sans uppercase tracking-widest text-xs font-bold text-on-primary scale-95 active:scale-90 transition-transform hover:opacity-80 inline-block text-center shadow-lg shadow-primary/20">
-                Consultoria Gratuita
-            </a>
         </nav>
     </header>
 
     <main>
         <section aria-labelledby="hero-title" class="hero-section pt-24 bg-surface" style="min-height: 100dvh !important;">
             <div class="absolute inset-0 z-0 overflow-hidden" style="min-height: 100dvh !important;">
-                <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="sync" fetchpriority="high" loading="eager" src="hero-bg.webp" class="w-full h-full object-cover opacity-30" />
+                <picture>
+                    <source srcset="hero-bg.webp" type="image/webp">
+                    <img alt="Fundo abstrato premium para marketing odontológico" aria-hidden="true" width="1280" height="720" decoding="sync" fetchpriority="high" loading="eager" src="hero-bg.jpg" class="w-full h-full object-cover opacity-30" />
+                </picture>
                 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
             </div>
             <div class="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -153,17 +166,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div class="tilt-card p-12 bg-surface-container-highest/30 rounded-xl space-y-6 shadow-xl border border-white/5 active-tilt reveal-up">
                         <span aria-label="Frustrado com curiosos" class="material-symbols-outlined text-primary text-5xl">person_search</span>
-                        <h3 class="font-headline text-2xl">Frustrado com "Curiosos"?</h3>
+                        <h3 class="font-headline text-2xl text-on-surface">Frustrado com "Curiosos"?</h3>
                         <p class="text-on-surface-variant leading-relaxed">Filtramos o público no Google e Instagram para entregar pacientes qualificados. Gestão de tráfego para dentistas que gera lucro real.</p>
                     </div>
                     <div class="tilt-card p-12 bg-surface-container-highest/30 rounded-xl space-y-6 shadow-xl border border-white/5 active-tilt reveal-up" data-delay="100">
                         <span aria-label="Conformidade ética" class="material-symbols-outlined text-primary text-5xl">verified_user</span>
-                        <h3 class="font-headline text-2xl">Conformidade Ética Total</h3>
+                        <h3 class="font-headline text-2xl text-on-surface">Conformidade Ética Total</h3>
                         <p class="text-on-surface-variant leading-relaxed">Campanhas que seguem as normas do CRO. Marketing sofisticado que eleva sua autoridade profissional e autoridade no mercado.</p>
                     </div>
                     <div class="tilt-card p-12 bg-surface-container-highest/30 rounded-xl space-y-6 shadow-xl border border-white/5 active-tilt reveal-up" data-delay="200">
                         <span aria-label="ROI mensurável" class="material-symbols-outlined text-primary text-5xl">monitoring</span>
-                        <h3 class="font-headline text-2xl">ROI Mensurável</h3>
+                        <h3 class="font-headline text-2xl text-on-surface">ROI Mensurável</h3>
                         <p class="text-on-surface-variant leading-relaxed">Rastreamento preciso de cada paciente. Atuamos desde o anúncio até a recepção, sendo um parceiro real no seu marketing odontológico.</p>
                     </div>
                 </div>

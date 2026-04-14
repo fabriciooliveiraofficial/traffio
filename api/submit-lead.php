@@ -12,12 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-// 🔐 CREDENCIAIS 
+require_once __DIR__ . '/env-loader.php';
+
+// 🔐 CREDENCIAIS (Carregadas via .env)
 $config = [
-    'telegram_token' => '8732456855:AAFyRzsBF0Gtw7EHz19VpBO2JGjEessiocU',
-    'telegram_chat_id' => '1045895672',
-    'email_to' => 'fabricio@traffio.com.br',
-    'email_from' => 'fabricio@traffio.com.br',
+    'telegram_token' => getenv('TELEGRAM_BOT_TOKEN'),
+    'telegram_chat_id' => getenv('TELEGRAM_CHAT_ID'),
+    'email_to' => getenv('EMAIL_TO'),
+    'email_from' => getenv('EMAIL_FROM'),
 ];
 
 $input = file_get_contents('php://input');

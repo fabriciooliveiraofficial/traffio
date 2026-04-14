@@ -18,20 +18,24 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://traffio.com.br/politica-de-privacidade" />
     
-    <!-- Google Fonts & Icons -->
+    <!-- Critical Preloads -->
+    <link rel="preload" href="css/style.css?v=2.0.0" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet" />
 
     <!-- Main Styles -->
-    <link rel="stylesheet" href="css/style.css?v=1.0.3" />
+    <link rel="stylesheet" href="css/style.css?v=2.0.0" />
     
     <style>
         :root {
             --color-primary:#e9c349;--color-surface:#0b1326;--color-on-surface:#dae2fd;--font-headline:'Noto Serif',serif;--font-body:'Manrope',sans-serif;
         }
-        body { background-color: var(--color-surface); color: var(--color-on-surface); font-family: var(--font-body); }
+        body { background-color: var(--color-surface); color: var(--color-on-surface); font-family: var(--font-body); visibility: hidden; }
+        body{visibility:visible !important;}
         .font-headline { font-family: var(--font-headline); }
         .policy-content h2 { font-family: var(--font-headline); font-size: 1.875rem; color: var(--color-primary); margin-top: 2.5rem; margin-bottom: 1.25rem; font-weight: 300; }
         .policy-content p { margin-bottom: 1.25rem; line-height: 1.75; font-weight: 300; color: #94a3b8; }
@@ -39,6 +43,15 @@
         .policy-content li { margin-bottom: 0.75rem; position: relative; padding-left: 1.75rem; color: #94a3b8; }
         .policy-content li::before { content: "check_circle"; font-family: 'Material Symbols Outlined'; position: absolute; left: 0; color: var(--color-primary); font-size: 1.25rem; }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18068880077"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18068880077');
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary antialiased">
     
@@ -49,12 +62,20 @@
     </div>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-[100] bg-slate-950/60 backdrop-blur-xl border-b border-white/5 h-[80px] flex items-center">
-        <nav aria-label="Navegação Principal" class="flex justify-between items-center px-8 w-full max-w-screen-2xl mx-auto">
-            <a href="/" class="font-serif italic text-2xl text-amber-400 no-underline">Traffio Odonto</a>
-            <a href="/" class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors no-underline flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">arrow_back</span> Voltar ao Início
-            </a>
+    <header class="fixed top-0 w-full z-[100] bg-slate-950/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="main-header" style="height: 80px !important;">
+        <nav aria-label="Navegação Principal" class="flex items-center justify-between px-8 w-full max-w-screen-2xl mx-auto h-full">
+            <a href="/" class="font-serif italic text-2xl text-amber-400 no-underline shrink-0">Traffio Odonto</a>
+            
+            <div class="hidden md:flex items-center gap-8 lg:gap-10">
+                <div class="flex items-center gap-8 lg:gap-10 border-r border-white/10 pr-8 lg:pr-10 h-6">
+                    <a class="font-sans uppercase tracking-widest text-xs text-amber-400 border-b border-amber-400/50 pb-1 hover:opacity-80 transition-opacity" href="/#solucao">Diferenciais</a>
+                    <a class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors" href="/#experiencia">Nossa Ética</a>
+                    <a class="font-sans uppercase tracking-widest text-xs text-slate-300 hover:text-amber-200 transition-colors" href="/#faq">Dúvidas</a>
+                </div>
+                <a href="/#super-form-section" aria-label="Solicitar consultoria gratuita" class="primary-gradient-btn px-6 py-3 rounded-md font-sans uppercase tracking-widest text-xs font-bold text-on-primary scale-95 active:scale-90 transition-transform hover:opacity-80 inline-block text-center shadow-lg shadow-primary/20 shrink-0">
+                    Consultoria Gratuita
+                </a>
+            </div>
         </nav>
     </header>
 
