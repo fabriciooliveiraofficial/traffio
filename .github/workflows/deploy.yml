@@ -22,10 +22,18 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             echo "🚀 Iniciando Deploy..."
-            # Acesse o diretório do seu site (ajuste se necessário)
-            cd ~/domains/traffio.com.br/public_html || cd ~/public_html
-            
-            # Puxa as alterações do GitHub
-            git pull origin main
-            
+
+            DIR=~/domains/traffio.com.br/public_html
+
+            if [ -d "$DIR/.git" ]; then
+              echo "📂 Repositório encontrado. Atualizando..."
+              cd "$DIR"
+              git fetch origin main
+              git reset --hard origin/main
+            else
+              echo "📦 Diretório sem repositório. Clonando do zero..."
+              rm -rf "$DIR"
+              git clone https://github.com/fabriciooliveiraofficial/traffio.git "$DIR"
+            fi
+
             echo "✅ Deploy concluído com sucesso!"

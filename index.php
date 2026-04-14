@@ -51,7 +51,7 @@
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "Traffio Odonto",
+      "name": "Traffio Marketing para Odontologia",
       "image": "https://traffio.com.br/logo.png",
       "@id": "https://traffio.com.br/",
       "url": "https://traffio.com.br/",
