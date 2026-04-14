@@ -9,8 +9,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18068880077"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18068880077');
+    </script>
     <title>Onboarding | Consultoria Estratégica - Traffio Odonto</title>
-    
+
     <!-- SEO -->
     <meta name="description" content="Inicie sua jornada de crescimento com a Traffio Odonto. Onboarding exclusivo para dentistas de alto padrão." />
     <meta name="robots" content="noindex, nofollow" />
@@ -134,15 +143,6 @@
             .premium-input { font-size: 1.5rem; }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18068880077"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-18068880077');
-    </script>
 </head>
 <body class="selection:bg-primary selection:text-on-primary antialiased">
     
