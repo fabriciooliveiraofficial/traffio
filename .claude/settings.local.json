@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ssh-keygen -y -P \"\" -f hostinger_rsa)",
+      "Bash(ssh-keygen -t ed25519 -C \"deploy@traffio.com.br\" -f hostinger_deploy -N \"\")"
+    ]
+  }
+}
